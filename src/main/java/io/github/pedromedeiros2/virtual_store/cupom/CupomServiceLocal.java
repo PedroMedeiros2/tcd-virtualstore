@@ -2,19 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package io.github.pedromedeiros2.virtual_store.pedido;
+package io.github.pedromedeiros2.virtual_store.cupom;
 
 import java.util.List;
 import javax.ejb.Local;
 
-
 /**
  *
- * @author Pedro Medeiros <phsm at aluno.ifnmg.edu.br>
+ * @author Daniel Alves<gatosfofos3 at gmail.com>
  */
 @Local
-public interface PedidoServiceLocal {
-    
-    void persist(Pedido pedido);
-    List<Pedido> showOrder();
+public interface CupomServiceLocal {
+    void persist(Cupom cupom);
+    List<Cupom> showCategoria();
 }

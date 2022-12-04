@@ -4,11 +4,14 @@
  */
 package io.github.pedromedeiros2.virtual_store.credencial;
 
+import io.github.pedromedeiros2.virtual_store.usuario.Usuario;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,6 +29,13 @@ public class Credencial implements Serializable {
     private String email;
     private String senha;
     private Boolean adm;
+    
+    @OneToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    
+    
 
     public Long getId() {
         return id;
@@ -114,6 +124,14 @@ public class Credencial implements Serializable {
      */
     public void setAdm(Boolean adm) {
         this.adm = adm;
+    }
+    
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
     }
     
 }

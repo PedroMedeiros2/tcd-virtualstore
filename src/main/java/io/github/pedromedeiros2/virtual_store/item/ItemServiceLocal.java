@@ -5,11 +5,13 @@
 package io.github.pedromedeiros2.virtual_store.item;
 
 import java.util.List;
+import javax.ejb.Local;
 
 /**
  *
  * @author Pedro Medeiros <phsm at aluno.ifnmg.edu.br>
  */
+@Local
 public interface ItemServiceLocal {
     
     void persist(Item item);
