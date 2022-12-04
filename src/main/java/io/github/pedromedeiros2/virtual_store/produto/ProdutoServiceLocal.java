@@ -16,5 +16,8 @@ import javax.ejb.Local;
 public interface ProdutoServiceLocal {
     
     void persist(Produto produto);
+    public Produto find(Long id);
+    void update(Produto produto);
+    void delete(Long id); 
     List<Produto> showProduct();
 }

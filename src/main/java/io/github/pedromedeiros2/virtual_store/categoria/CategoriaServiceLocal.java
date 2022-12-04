@@ -16,6 +16,9 @@ public interface CategoriaServiceLocal {
     
    
     void persist(Categoria categoria);
+    public Categoria find(Long id);
+    void update(Categoria categoria);
+    void delete(Long id);
     List<Categoria> showCategoria();
     
 }

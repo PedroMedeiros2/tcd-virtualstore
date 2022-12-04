@@ -25,5 +25,21 @@ public class PedidoService implements PedidoServiceLocal {
         Query query = entityManager.createQuery("SELECT p FROM Pedido p");
         return (List<Pedido>) query.getResultList();
     }
+
+    @Override
+    public Pedido find(Long id) {
+        return entityManager.find(Pedido.class, id);
+    }
+
+    @Override
+    public void update(Pedido pedido) {
+        entityManager.merge(pedido);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Pedido pedido = find(id);
+        entityManager.remove(pedido);   
+    }
     
 }

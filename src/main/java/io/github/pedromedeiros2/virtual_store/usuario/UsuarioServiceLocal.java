@@ -16,5 +16,8 @@ import javax.ejb.Local;
 public interface UsuarioServiceLocal {
     
     void persist(Usuario usuario);
+    public Usuario find(Long id);
+    void update(Usuario usuario);
+    void delete(Long id);
     List<Usuario> showUser();
 }

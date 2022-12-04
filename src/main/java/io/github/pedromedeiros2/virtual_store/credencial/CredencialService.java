@@ -29,5 +29,21 @@ public class CredencialService implements CredencialServiceLocal{
         Query query = entityManager.createQuery("SELECT c FROM Credencial c");
         return (List<Credencial>) query.getResultList();
     }
+
+    @Override
+    public Credencial find(Long id) {
+        return entityManager.find(Credencial.class, id);    
+    }
+
+    @Override
+    public void update(Credencial credencial) {
+        entityManager.merge(credencial);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Credencial credencial = find(id);
+        entityManager.remove(credencial);   
+    }
     
 }

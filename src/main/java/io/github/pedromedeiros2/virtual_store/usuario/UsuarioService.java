@@ -26,5 +26,21 @@ public class UsuarioService implements UsuarioServiceLocal {
         Query query = entityManager.createQuery("SELECT u FROM Usuario u");
         return (List<Usuario>) query.getResultList();
     }
+
+    @Override
+    public Usuario find(Long id) {
+        return entityManager.find(Usuario.class, id);
+    }
+
+    @Override
+    public void update(Usuario usuario) {
+        entityManager.merge(usuario);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Usuario usuario = find(id);
+        entityManager.remove(usuario);
+    }
       
 }

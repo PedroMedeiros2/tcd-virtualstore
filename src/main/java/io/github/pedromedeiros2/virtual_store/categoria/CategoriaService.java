@@ -28,5 +28,20 @@ public class CategoriaService implements CategoriaServiceLocal{
         Query query = entityManager.createQuery("SELECT c FROM Categoria c");
         return (List<Categoria>) query.getResultList();
     }
-    
+
+    @Override
+    public Categoria find(Long id) {
+        return entityManager.find(Categoria.class, id);     
+    }
+
+    @Override
+    public void update(Categoria categoria) {
+        entityManager.merge(categoria);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Categoria categoria = find(id);
+        entityManager.remove(categoria);   
+    }
 }

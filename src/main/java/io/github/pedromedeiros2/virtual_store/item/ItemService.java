@@ -25,5 +25,21 @@ public class ItemService implements ItemServiceLocal {
         Query query = entityManager.createQuery("SELECT i FROM Item i");
         return (List<Item>) query.getResultList();
     }
+
+    @Override
+    public Item find(Long id) {
+        return entityManager.find(Item.class, id);
+    }
+
+    @Override
+    public void update(Item item) {
+        entityManager.merge(item);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Item item = find(id);
+        entityManager.remove(item);   
+    }
     
 }

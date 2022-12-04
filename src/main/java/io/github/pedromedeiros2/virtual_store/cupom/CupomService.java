@@ -29,5 +29,21 @@ public class CupomService implements CupomServiceLocal{
         Query query = entityManager.createQuery("SELECT c FROM Cupom c");
         return (List<Cupom>) query.getResultList();
     }
+
+    @Override
+    public Cupom find(Long id) {
+        return entityManager.find(Cupom.class, id);
+    }
+
+    @Override
+    public void update(Cupom cupom) {
+        entityManager.merge(cupom);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Cupom cupom = find(id);
+        entityManager.remove(cupom);   
+    }
     
 }

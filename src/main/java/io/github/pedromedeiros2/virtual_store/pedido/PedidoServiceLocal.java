@@ -16,5 +16,8 @@ import javax.ejb.Local;
 public interface PedidoServiceLocal {
     
     void persist(Pedido pedido);
+    public Pedido find(Long id);
+    void update(Pedido pedido);
+    void delete(Long id);
     List<Pedido> showOrder();
 }

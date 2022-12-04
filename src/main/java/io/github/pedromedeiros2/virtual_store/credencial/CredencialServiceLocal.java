@@ -15,6 +15,9 @@ import javax.ejb.Local;
 public interface CredencialServiceLocal {
     
     void persist(Credencial credencial);
+    public Credencial find(Long id);
+    void update(Credencial credencial);
+    void delete(Long id);
     List<Credencial> showCategoria();
     
 

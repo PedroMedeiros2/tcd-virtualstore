@@ -15,5 +15,8 @@ import javax.ejb.Local;
 public interface ItemServiceLocal {
     
     void persist(Item item);
+    public Item find(Long id);
+    void update(Item item);
+    void delete(Long id);
     List<Item> showItem();
 }

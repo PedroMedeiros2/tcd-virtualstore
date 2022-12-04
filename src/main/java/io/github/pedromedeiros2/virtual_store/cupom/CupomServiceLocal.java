@@ -14,5 +14,8 @@ import javax.ejb.Local;
 @Local
 public interface CupomServiceLocal {
     void persist(Cupom cupom);
+    public Cupom find(Long id);
+    void update(Cupom cupom);
+    void delete(Long id);
     List<Cupom> showCategoria();
 }
