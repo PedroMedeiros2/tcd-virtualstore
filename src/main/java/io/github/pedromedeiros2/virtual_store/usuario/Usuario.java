@@ -39,7 +39,9 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "credencial_id")
     private Credencial credencial;
     
-    public Usuario() {
+    public Usuario(String nome , Credencial credencial) {
+        this.nome = nome;
+        this.credencial = credencial;
         pedidos = new ArrayList<>();
     }
     

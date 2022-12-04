@@ -7,6 +7,8 @@ package io.github.pedromedeiros2.virtual_store.pedido;
 import io.github.pedromedeiros2.virtual_store.item.Item;
 import io.github.pedromedeiros2.virtual_store.usuario.Usuario;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.json.bind.annotation.JsonbTransient;
@@ -32,7 +34,7 @@ public class Pedido implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String formaPagamento;
-    private Date data;
+    private LocalDate data;
     private Float valorFinal;
     
     @ManyToOne
@@ -43,6 +45,16 @@ public class Pedido implements Serializable {
     @OneToMany(mappedBy = "pedido")
     private List<Item> itens;
 
+    public Pedido(String formaPagamento, LocalDate data, Float valorFinal, Usuario usuario) {
+        this.formaPagamento = formaPagamento;
+        this.data = data;
+        this.valorFinal = valorFinal;
+        this.usuario = usuario;
+        itens = new ArrayList<>();
+    }
+
+    
+    
     public Long getId() {
         return id;
     }
@@ -107,14 +119,14 @@ public class Pedido implements Serializable {
     /**
      * @return the data
      */
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
     /**
      * @param data the data to set
      */
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
@@ -156,8 +168,8 @@ public class Pedido implements Serializable {
     /**
      * @param itens the itens to set
      */
-    public void setItens(List<Item> itens) {
-        this.itens = itens;
+    public void setItens(Item item) {
+        this.itens.add(item);
     }
     
 }

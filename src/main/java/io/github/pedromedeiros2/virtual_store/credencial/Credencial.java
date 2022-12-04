@@ -6,6 +6,8 @@ package io.github.pedromedeiros2.virtual_store.credencial;
 
 import io.github.pedromedeiros2.virtual_store.usuario.Usuario;
 import java.io.Serializable;
+import javax.json.bind.annotation.JsonbTransient;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -26,17 +29,23 @@ public class Credencial implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(length = 250 , unique = true , nullable = false)
     private String email;
+    @Column(length = 64 , nullable = false)
     private String senha;
     private Boolean adm;
     
-    @OneToOne
-    @JoinColumn(name = "usuario_id")
+    @OneToOne(mappedBy = "credencial")
+    @JsonbTransient
     private Usuario usuario;
 
-    
-    
+    public Credencial(String email, String senha, Boolean adm) {
+        this.email = email;
+        this.senha = senha;
+        this.adm = adm;
+    }
 
+    
     public Long getId() {
         return id;
     }

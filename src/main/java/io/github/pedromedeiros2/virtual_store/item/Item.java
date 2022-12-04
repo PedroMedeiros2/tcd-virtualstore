@@ -5,6 +5,7 @@
 package io.github.pedromedeiros2.virtual_store.item;
 
 import io.github.pedromedeiros2.virtual_store.pedido.Pedido;
+import io.github.pedromedeiros2.virtual_store.produto.Produto;
 import java.io.Serializable;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
@@ -35,12 +36,23 @@ public class Item implements Serializable {
     
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "produto_id")
-    private Item item;
+    //private Item item;
+    //troquei o item por produto
+    private Produto produto;
     
     @ManyToOne
     @JoinColumn(name = "pedido_id")
     @JsonbTransient
     private Pedido pedido;
+
+    public Item(Float valor, int quantidade, Produto produto, Pedido pedido) {
+        this.valor = valor;
+        this.quantidade = quantidade;
+        this.produto = produto;
+        this.pedido = pedido;
+    }
+    
+    
     
     public Long getId() {
         return id;
@@ -118,20 +130,6 @@ public class Item implements Serializable {
     }
 
     /**
-     * @return the item
-     */
-    public Item getItem() {
-        return item;
-    }
-
-    /**
-     * @param item the item to set
-     */
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
-    /**
      * @return the pedido
      */
     public Pedido getPedido() {
@@ -143,6 +141,20 @@ public class Item implements Serializable {
      */
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
+    }
+
+    /**
+     * @return the produto
+     */
+    public Produto getProduto() {
+        return produto;
+    }
+
+    /**
+     * @param produto the produto to set
+     */
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
     
 }

@@ -34,6 +34,17 @@ public class Produto implements Serializable {
     
     @OneToOne
     private Categoria categoria;
+
+    public Produto(String nome, String descricao, String foto, int estoque, float preco , Categoria categoria) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.foto = foto;
+        this.estoque = estoque;
+        this.preco = preco;
+        this.categoria = categoria;
+    }
+    
+   
     
     public Long getId() {
         return id;
