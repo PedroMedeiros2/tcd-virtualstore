@@ -7,6 +7,7 @@ package io.github.pedromedeiros2.virtual_store.pedido;
 import io.github.pedromedeiros2.virtual_store.item.Item;
 import io.github.pedromedeiros2.virtual_store.usuario.Usuario;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.json.bind.annotation.JsonbTransient;
@@ -43,6 +44,16 @@ public class Pedido implements Serializable {
     @OneToMany(mappedBy = "pedido")
     private List<Item> itens;
 
+    public Pedido(String formaPagamento, Date data, Float valorFinal, Usuario usuario) {
+        this.formaPagamento = formaPagamento;
+        this.data = data;
+        this.valorFinal = valorFinal;
+        this.usuario = usuario;
+        itens = new ArrayList<>();
+    }
+
+    
+    
     public Long getId() {
         return id;
     }
