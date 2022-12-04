@@ -4,11 +4,14 @@
  */
 package io.github.pedromedeiros2.virtual_store.produto;
 
+import io.github.pedromedeiros2.virtual_store.categoria.Categoria;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -29,7 +32,9 @@ public class Produto implements Serializable {
     private int estoque;
     private float preco;
     
-
+    @OneToOne
+    private Categoria categoria;
+    
     public Long getId() {
         return id;
     }
