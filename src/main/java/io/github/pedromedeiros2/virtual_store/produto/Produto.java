@@ -35,6 +35,11 @@ public class Produto implements Serializable {
     @OneToOne
     private Categoria categoria;
 
+    public Produto() {
+    }
+    
+    
+
     public Produto(String nome, String descricao, String foto, int estoque, float preco , Categoria categoria) {
         this.nome = nome;
         this.descricao = descricao;

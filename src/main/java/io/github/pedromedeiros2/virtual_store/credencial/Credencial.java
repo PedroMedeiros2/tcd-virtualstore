@@ -39,6 +39,11 @@ public class Credencial implements Serializable {
     @JsonbTransient
     private Usuario usuario;
 
+    public Credencial() {
+    }
+
+    
+    
     public Credencial(String email, String senha, Boolean adm) {
         this.email = email;
         this.senha = senha;

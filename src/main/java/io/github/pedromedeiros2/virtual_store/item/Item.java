@@ -45,6 +45,11 @@ public class Item implements Serializable {
     @JsonbTransient
     private Pedido pedido;
 
+    public Item() {
+    }
+
+    
+    
     public Item(Float valor, int quantidade, Produto produto, Pedido pedido) {
         this.valor = valor;
         this.quantidade = quantidade;

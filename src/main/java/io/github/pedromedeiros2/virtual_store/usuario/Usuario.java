@@ -38,6 +38,11 @@ public class Usuario implements Serializable {
     @OneToOne
     @JoinColumn(name = "credencial_id")
     private Credencial credencial;
+
+    public Usuario() {
+    }
+    
+    
     
     public Usuario(String nome , Credencial credencial) {
         this.nome = nome;

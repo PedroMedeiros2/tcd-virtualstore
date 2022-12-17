@@ -45,6 +45,11 @@ public class Pedido implements Serializable {
     @OneToMany(mappedBy = "pedido")
     private List<Item> itens;
 
+    public Pedido() {
+    }
+    
+    
+
     public Pedido(String formaPagamento, LocalDate data, Float valorFinal, Usuario usuario) {
         this.formaPagamento = formaPagamento;
         this.data = data;
@@ -168,8 +173,17 @@ public class Pedido implements Serializable {
     /**
      * @param itens the itens to set
      */
-    public void setItens(Item item) {
+    public void addItens(Item item) {
         this.itens.add(item);
     }
+
+    /**
+     * @param itens the itens to set
+     */
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
+    }
+    
+    
     
 }

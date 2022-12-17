@@ -103,6 +103,8 @@ public class CarregarDados implements CarregarDadosLocal{
         Produto playStationStore3 = new Produto("Gift Card PlayStation Store R$250 - Cartão Presente Digital", DescricaoPlaySationStore,imagemPlaySationStore , 4 , 250.00f ,categoria3);
         
         
+        
+        
         // CREDENCIAL 
         Credencial credencial1 = new Credencial("pedroMedeiro@gm","123456",false);
         Credencial credencial2 = new Credencial("danielA@gm","123456",false);
@@ -132,21 +134,21 @@ public class CarregarDados implements CarregarDadosLocal{
         //pedidos --> pedido1U1 = pedido 1 do usuario 1  && item1P1U1 = item 1 do pedido 1 do usuario 1
         Pedido pedido1U1 = new Pedido("Cartão", LocalDate.of(2022, Month.FEBRUARY, 2), 22.00f , usuario1);
         Item item1P1U1 = new Item(20.00f,2,playstore1,pedido1U1);
-        pedido1U1.setItens(item1P1U1);
+        pedido1U1.addItens(item1P1U1);
         
         //nesse exemplo o mesmo usuario 1 fez um segundo pedido que tinha 2 itens , 1 desses itens tinha 2 unidade do produto
         Pedido pedido2U1 = new Pedido("Cartão", LocalDate.of(2022, Month.APRIL, 20), 155.00f , usuario1);
         Item item1P2U1 = new Item(50.00f,1,playstore3,pedido2U1);
         Item item2P2U1 = new Item(100.00f,2,SteamStore2,pedido2U1);
-        pedido2U1.setItens(item1P2U1);
-        pedido2U1.setItens(item2P2U1);
+        pedido2U1.addItens(item1P2U1);
+        pedido2U1.addItens(item2P2U1);
         
         //usuario 2
         Pedido pedido1U2 = new Pedido("Cartão", LocalDate.of(2022, Month.APRIL, 20), 460.00f , usuario2);
         Item item1P1U2 = new Item(250.00f,1,playStationStore3,pedido1U2);
         Item item2P1U2 = new Item(50.00f,4,xBoxStore1,pedido1U2);
-        pedido1U2.setItens(item1P1U2);
-        pedido1U2.setItens(item2P1U2);
+        pedido1U2.addItens(item1P1U2);
+        pedido1U2.addItens(item2P1U2);
         
         
         Pedido pedido2U2 = new Pedido("Cartão", LocalDate.of(2022, Month.APRIL, 22), 208.40f , usuario2);
@@ -154,23 +156,23 @@ public class CarregarDados implements CarregarDadosLocal{
         Item item2P2U2 = new Item(50.00f,1,SteamStore2,pedido2U2);
         Item item3P2U2 = new Item(100.00f,1,SteamStore3,pedido2U2);
         Item item4P2U2 = new Item(30.00f,1,playstore2,pedido2U2);
-        pedido2U2.setItens(item1P2U2);
-        pedido2U2.setItens(item2P2U2);
-        pedido2U2.setItens(item3P2U2);
-        pedido2U2.setItens(item4P2U2);
+        pedido2U2.addItens(item1P2U2);
+        pedido2U2.addItens(item2P2U2);
+        pedido2U2.addItens(item3P2U2);
+        pedido2U2.addItens(item4P2U2);
         
         
         //usuario 3
         Pedido pedido1U3 = new Pedido("Pix", LocalDate.of(2022, Month.MAY, 6), 22.00f , usuario3);
         Item item1P1U3 = new Item(20.00f,1,playstore1,pedido1U3);
-        pedido1U3.setItens(item1P1U3);
+        pedido1U3.addItens(item1P1U3);
         
         //usuario 6 
         Pedido pedido1U6 = new Pedido("Boleto", LocalDate.of(2022, Month.JUNE, 17), 205.50f , usuario6);
         Item item1P1U6 = new Item(50.00f,2,playStationStore1,pedido1U6);
         Item item2P1U6 = new Item(100.00f,1,playStationStore2,pedido1U6);
-        pedido1U6.setItens(item1P1U6);
-        pedido1U6.setItens(item2P1U6);
+        pedido1U6.addItens(item1P1U6);
+        pedido1U6.addItens(item2P1U6);
         
     }
     

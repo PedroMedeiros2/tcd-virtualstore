@@ -25,6 +25,10 @@ public class Categoria implements Serializable {
     private Long id;
     private String tipo;
 
+    public Categoria(){
+        
+    }
+    
     public Categoria(String tipo) {
         this.tipo = tipo;
     }
